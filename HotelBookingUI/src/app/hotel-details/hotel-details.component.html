@@ -1,0 +1,16 @@
+<mat-card class="example-card" style="margin: 30px;">
+  <mat-card-header>
+    <mat-card-title style="font-weight: bold">{{hotel?.name}}
+      <star-rating [starType]="'svg'" [rating]='hotel?.rating' style="float: right;"></star-rating>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <span style="font-weight: bold">Address:</span> &nbsp;<span>{{hotel?.address}}</span>
+
+    <div style="border: 1px solid black; width: 100%">
+      <div style="font-weight: bold">Username: <p style="font-weight: normal">{{hotel?.reviewUsername}}</p></div>
+      <div style="font-weight: bold">Review Title: <p style="font-weight: normal">{{hotel?.reviewTitle}}</p></div>
+      <div style="font-weight: bold">Review Details: <p style="font-weight: normal">{{hotel?.reviewText}}</p></div>
+    </div>
+  </mat-card-content>
+</mat-card>

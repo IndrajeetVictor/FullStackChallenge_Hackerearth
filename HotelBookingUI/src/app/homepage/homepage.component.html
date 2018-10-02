@@ -1,0 +1,35 @@
+<div class="container" style="margin: 50px;">
+  <div class="row">
+    <div class="col-6" style="margin: 0 auto;">
+      <form class="example-form" style="margin: 5px;">
+        <input type="text" placeholder="City.." aria-label="City" matInput [formControl]="myControl"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+      <button class="btn btn-primary" style="margin: 5px;" (click)="onSearchClick()">Search</button>
+    </div>
+  </div>
+
+
+  <div class="row" *ngFor="let hotel of hotels" style="margin: 10px;">
+    <a style="margin: 0 auto; width: 100%" [routerLink]="['/hotel',hotel.id]">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title style="font-weight: bold">{{hotel.name}}
+            <star-rating [starType]="'svg'" [rating]=[hotel.rating] style="float: right;"></star-rating>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span style="font-weight: bold">Address:</span> &nbsp;<span>{{hotel.address}}</span>
+
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+
+
+</div>
